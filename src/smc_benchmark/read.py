@@ -6,17 +6,23 @@ import pandas as pd
 from smc_benchmark._naming import KIT_NAMING
 from smc_benchmark._utils import decode_filename
 
-NUMBER_TO_DISTANCE = {1: "3mm", 4: "6mm", 9: "9mm"}
+# Test configuirations
+CONFIG1 = "3mm 100x100"
+CONFIG2 = "3mm 50x50"
+CONFIG3 = "5mm 100x100"
+CONFIG4 = "7mm 100x100"
+
+# Mapping between configuration and number for KIT
 CONFIG_TO_NUMBER_KIT = {
-    "3mm 100x100": [3, 7, 11, 15, 19, 23],
-    "3mm 50x50": [4, 8, 12, 16, 20, 24],
-    "5mm 100x100": [2, 6, 10, 14, 18, 22],
-    "7mm 100x100": [1, 5, 9, 13, 17, 21],
+    CONFIG1: [3, 7, 11, 15, 19, 23],
+    CONFIG2: [4, 8, 12, 16, 20, 24],
+    CONFIG3: [2, 6, 10, 14, 18, 22],
+    CONFIG4: [1, 5, 9, 13, 17, 21],
 }
 NUMBER_TO_CONFIG_KIT = {v: k for k, values in CONFIG_TO_NUMBER_KIT.items() for v in values}
 
 
-def kit(folder):
+def read_kit(folder):
     """Read KIT test data."""
     folder = pl.Path(folder)
     if not folder.exists():
@@ -43,5 +49,5 @@ def kit(folder):
     return all_data
 
 
-def tum():
+def read_tum():
     pass
