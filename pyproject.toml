@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smc_benchmark"
+version = "0.0.1"
+authors = [
+  { name = "Louis Schreyer", email = "louis.schreyer@kit.edu" },
+  { name = "Marcel Olma", email = "marcel.olma@kit.edu" },
+]
+description = "Read and process data concerning european SMC benchmark."
+readme = "README.md"
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "matplotlib"]
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+lint.extend-select = [
+  "I",  # isort
+  "F",  # pyflakes
+  "E",  # pydocstyles errors
+  "W",  # pydocstyles warnings
+  "UP", # pyupgrade
+  "N",  # PEP8 Naming
+  # "ANN", # function annotations
+  "B",   # bugbear
+  "A",   # builtins
+  "C4",  # comprehensions
+  "ICN", # import conventions
+  "PTH", # pathlib (flake-8)
+  "PD",  # pandas-vet
+  "PLE", # Pylint errors
+  "NPY", # NumPy
+  "RUF", # Ruff
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = ["if __name__ == .__main__.:", "except", "import"]
