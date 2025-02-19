@@ -27,4 +27,4 @@ pip install .
 
 ### Scripts
 
-Folder `examples` contains the scripts for the evaluation.
+Folder `example` contains the scripts for the evaluation.
