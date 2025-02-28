@@ -30,7 +30,7 @@ for sheet in sheets:
 
     for index, row in df.iterrows():
         material = row.iloc[1]
-        weight = float(row.iloc[10]) / 1000 if not pd.isna(row.iloc[10]) else np.nan
+        weight = float(row.iloc[10]) if not pd.isna(row.iloc[10]) else np.nan
         Thickness = float(row.iloc[11]) / 1000 if not pd.isna(row.iloc[11]) else np.nan
         side_lengths = float(row.iloc[4]) / 1000 if not pd.isna(row.iloc[4]) else np.nan
 
