@@ -3,7 +3,7 @@ import pathlib as pl
 import numpy as np
 import pandas as pd
 
-from smc_benchmark._naming import KIT_NAMING
+from smc_benchmark._naming import KIT_NAMING, UT_NAMING
 from smc_benchmark._utils import decode_filename
 
 # Test configuirations
@@ -12,7 +12,7 @@ CONFIG2 = "3mm 50x50"
 CONFIG3 = "5mm 100x100"
 CONFIG4 = "7mm 100x100"
 
-# Mapping between configuration and number for KIT
+# Mapping between configuration and number for KIT, UT
 CONFIG_TO_NUMBER_KIT = {
     CONFIG1: [3, 7, 11, 15, 19, 23],
     CONFIG2: [4, 8, 12, 16, 20, 24],
@@ -48,6 +48,34 @@ def read_kit(folder):
     # TODO : Manipulate data to match the desired format
     return all_data
 
+def read_ut(folder):
+    """Read UT/TPRC data."""
+    folder = pl.Path(folder)
+    if not folder.exists():
+        raise FileNotFoundError(f"Folder not found: {folder}")
+
+    # Read data
+    all_data = {}
+    for file in folder.glob("*.csv"):
+        _, material, number = decode_filename(file.stem)
+
+        # Read individual experiment
+        pd_data = pd.read_csv(file,
+                              sep=",",
+                              names=UT_NAMING,
+                              skiprows=6,
+                              quotechar='"')
+
+        # Add experiment to all data
+        if material not in all_data:
+            all_data[material] = {}
+        specification = NUMBER_TO_CONFIG_KIT[int(number)]
+        if specification not in all_data[material]:
+            all_data[material][specification] = []
+        all_data[material][specification].append(pd_data)
+
+    # TODO : Manipulate data to match the desired format
+    return all_data
 
 def read_tum():
     pass
