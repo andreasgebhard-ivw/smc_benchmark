@@ -30,7 +30,7 @@ def read_kit(folder):
 
     # Read data
     all_data = {}
-    for file in folder.glob("*.txt", case_sensitive=False):
+    for file in folder.glob("*.TXT"):
         _, material, number = decode_filename(file.stem)
 
         # Read individual experiment
