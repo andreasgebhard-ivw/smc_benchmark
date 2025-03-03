@@ -48,6 +48,7 @@ lint.extend-select = [
   "NPY", # NumPy
   "RUF", # Ruff
 ]
+lint.ignore = ["PD901"]  # ignore generic name `df` for DataFrame
 
 [tool.isort]
 profile = "black"

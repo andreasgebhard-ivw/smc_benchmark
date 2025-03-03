@@ -23,12 +23,10 @@ data_dict = {}
 
 # Loop through each sheet
 for sheet in sheets:
-    df = pd.read_excel(
-        excel_file_path, sheet_name=sheet, skiprows=18
-    )  # Start from row 20
+    df = pd.read_excel(excel_file_path, sheet_name=sheet, skiprows=18)  # Start from row 20
     df = df.dropna(subset=[df.columns[1]], how="all")  # Stop when empty row
 
-    for index, row in df.iterrows():
+    for _index, row in df.iterrows():
         material = row.iloc[1]
         weight = float(row.iloc[10]) if not pd.isna(row.iloc[10]) else np.nan
         Thickness = float(row.iloc[11]) / 1000 if not pd.isna(row.iloc[11]) else np.nan
