@@ -32,6 +32,7 @@ jobs:
     - name: install smc_benchmark
       run: |
         pip install --upgrade pip
+        pip install pytest
         pip install .
     - name: test
       run: |
