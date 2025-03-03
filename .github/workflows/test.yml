@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies and run tests with a variety of Python versions
+name: Some testing.
+
+on: [push]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: lint
+        run: |
+          pip install ruff
+          ruff check
+
+  testing:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: install smc_benchmark
+      run: |
+        pip install --upgrade pip
+        pip install pytest
+        pip install .
+    - name: test
+      run: |
+        pytest -vv

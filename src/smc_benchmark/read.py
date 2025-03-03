@@ -68,8 +68,6 @@ def read(institution, folder):
         if specification not in all_data[material]:
             all_data[material][specification] = []
         all_data[material][specification].append(pd_data)
-
-    # TODO : Manipulate data to match the desired format
     return all_data
 
 

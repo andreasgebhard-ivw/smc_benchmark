@@ -1,5 +1,6 @@
-# Data folders
-data/
+# Temporary folders
+\tmp
+\temp
 
 # Image files
 *.png
