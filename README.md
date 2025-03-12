@@ -13,18 +13,28 @@ git clone https://github.com/FAST-LB/smc_benchmark.git
 ```
 ### Install the Python package
  
-Navigate in the folder
+Navigate to the folder
  
 ```
 cd smc_benchmark
 ```
  
-Install package with
+and install the package with
  
 ```
-pip install .
+python -m pip install .
+python install/download_sam.py
 ```
 
-### Scripts
+## Scripts
 
-Folder `example` contains the scripts for the evaluation.
+The folder `scripts` contains CLI scripts to `smc_benchmark`'s core functionalities.
+Using these, the main workflows for processing csv and image data can be realized as follows.
+
+## Image processing workflow
+The image processing workflow comprises three substeps:
+
+1. Rename files
+2. Reformat files
+3. Sort files
+

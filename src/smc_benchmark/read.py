@@ -6,7 +6,7 @@ import pandas as pd
 from smc_benchmark._naming import KIT_NAMING, UT_NAMING
 from smc_benchmark._utils import decode_filename
 
-# Test configuirations
+# Test configurations
 CONFIG1 = "3mm 100x100"
 CONFIG2 = "3mm 50x50"
 CONFIG3 = "5mm 100x100"
@@ -35,7 +35,7 @@ def read(institution, folder):
     Parameters
     ----------
     institution : str
-        Abbrevation of institution where the data was collected, e.g., 'kit' or 'ut'.
+        Abbreviation of institution where the data was collected, e.g., 'kit' or 'ut'.
     folder : str | pathlib.Path
         Path to the folder containing the data.
 
@@ -59,7 +59,7 @@ def read(institution, folder):
         elif institution == UT:
             pd_data = _read_ut(file)
         else:
-            raise ValueError(f"Insitution '{institution}' not found")
+            raise ValueError(f"Institution '{institution}' not found")
 
         # Add experiment to all data
         if material not in all_data:

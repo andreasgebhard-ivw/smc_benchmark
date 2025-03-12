@@ -4,12 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smc_benchmark"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name = "Louis Schreyer", email = "louis.schreyer@kit.edu" },
   { name = "Marcel Olma", email = "marcel.olma@kit.edu" },
+  { name = "Andreas Gebhard", email = "andreas.gebhard@ivw.uni-kl.de"},
+  { name = "Miro Duhovic", email = "miro.duhovic@ivw.uni-kl.de"},
+  { name = "Dominic Schommer", email = "dominic.schommer@ivw.uni-kl.de"},
 ]
-description = "Read and process data concerning european SMC benchmark."
+description = "Read and process data from the First European SMC Benchmark."
 readme = "README.md"
 classifiers = [
   "Operating System :: OS Independent",
@@ -20,7 +23,8 @@ classifiers = [
   "Topic :: Scientific/Engineering",
 ]
 requires-python = ">=3.9"
-dependencies = ["numpy", "pandas", "matplotlib"]
+dependencies = ["numpy", "pandas", "matplotlib",
+  "torch", "supervision", "segment_anything", "opencv-python"]
 
 [tool.distutils.bdist_wheel]
 universal = true

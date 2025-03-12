@@ -45,7 +45,6 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-
 # PyBuilder
 .pybuilder/
 target/
@@ -78,3 +77,9 @@ venv.bak/
 
 # PyPI configuration file
 .pypirc
+
+# Resources folder
+resources
+
+# Jetbrains Pycharm
+.idea
